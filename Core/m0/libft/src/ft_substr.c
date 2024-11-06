@@ -14,12 +14,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     buffer = malloc(sizeof(char) * len);
     if (!buffer)
         return (NULL);
-    while ((size_t)start < len)
-    {
-        buffer[i] = s[start - 1];
-        start++;
-        i++;
-    }
+    (buffer, &s[start], len);
     buffer[i] = '\0';
     return (buffer);
 }
