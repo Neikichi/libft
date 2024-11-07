@@ -7,12 +7,12 @@ char *ft_strtrim(char const *s1, char const *set)
   const char *end;
 
   start = s1;
-  while (*start && strchr(set, *start))
+  while (*start && ft_strchr(set, *start))
   { 
     start++;
   }
   end = s1 + ft_strlen(s1) - 1;
-  while (strchr(set, *end) && end >= start)
+  while (ft_strchr(set, *end) && end >= start)
   {
     end--;
   }

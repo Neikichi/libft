@@ -14,7 +14,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     buffer = malloc(sizeof(char) * len);
     if (!buffer)
         return (NULL);
-    (buffer, &s[start], len);
+    ft_strlcpy(buffer, &s[start], len);
     buffer[i] = '\0';
     return (buffer);
 }

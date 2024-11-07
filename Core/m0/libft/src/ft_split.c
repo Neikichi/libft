@@ -1,7 +1,7 @@
 #include "libft.h"
 
 static char **ft_split_ex(char const *s, char c, char **result);
-static int ft_countword(char *str, char *charset);
+static int ft_countword(const char *str, char *charset);
 
 char  **ft_split(char const *s, char c)
 {
@@ -16,7 +16,7 @@ char  **ft_split(char const *s, char c)
     result[0] = NULL;
     return (result);
   }
-  size = ft_countword(s, c);
+  size = ft_countword(s, &c);
   result = malloc(sizeof(char *) * (size + 1));
   if (!result)
     return (NULL);
@@ -31,15 +31,14 @@ static char **ft_split_ex(char const *s, char c, char **result)
   i = 0;
   while (*s)
   {
-    while (*s && ft_strchr(c, *s))
+    while (*s && ft_strchr(&c, *s))
       s++;
     if (*s)
     {
       ptr = s;
-      while (*ptr && !ft_strchr(c, *s))
+      while (*ptr && !ft_strchr(&c, *s))
         ptr++;
-      result = malloc(sizeof(char) * (ptr - s + 1):while (true) {
-      });
+      result = malloc(sizeof(char) * (ptr - s + 1));
       if (!result)
         return (NULL);
       ft_strlcpy(result[i], s, (ptr - s));
@@ -51,7 +50,7 @@ static char **ft_split_ex(char const *s, char c, char **result)
   return (result);
 }
 
-static int ft_countword(char *str, char *charset)
+static int ft_countword(const char *str, char *charset)
 {
   int cnt;
   int flag;
