@@ -3,6 +3,13 @@
 static int ft_countdigits(long int n);
 static char *ft_itoa_ex(int n);
 
+/// @brief Convert integer to string representation
+/// 
+/// This function converts the given integer `n` to a string representation.
+/// Special cases such as INT_MAX and INT_MIN are handled separately.
+/// 
+/// @param n The integer to be converted
+/// @return A pointer to a null-terminated string representing the integer
 char *ft_itoa(int n)
 {
   if (n == 2147483647)
@@ -52,4 +59,29 @@ static int ft_countdigits(long int n)
     count++;
   }
   return (count);
+}
+
+#include <stdio.h>  // Library used in main for testing purposes
+
+int main(void)
+{
+  // Test cases for ft_itoa
+  int test_values[] = {0, -2147483648, 2147483647, -12345, 12345};
+  char *result;
+
+  for (int i = 0; i < 5; i++)
+  {
+    result = ft_itoa(test_values[i]);
+    if (result)
+    {
+      printf("ft_itoa(%d) = %s\n", test_values[i], result);
+      free(result);
+    }
+    else
+    {
+      printf("ft_itoa(%d) = NULL (Memory allocation failed)\n", test_values[i]);
+    }
+  }
+
+  return 0;
 }

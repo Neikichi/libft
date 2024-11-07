@@ -1,5 +1,16 @@
 #include "libft.h"
 
+
+/// @brief Copy memory area
+/// 
+/// This function copies `n` bytes from the memory area pointed to by `src` to
+/// the memory area pointed to by `dest`. The memory areas should not overlap.
+/// If they overlap, use `ft_memmove` instead.
+/// 
+/// @param dest A pointer to the destination memory area
+/// @param src A pointer to the source memory area
+/// @param n The number of bytes to be copied
+/// @return A pointer to the destination memory area (`dest`)
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {
     unsigned char *ptr_dest;
@@ -17,4 +28,35 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
         i++;
     }
     return (dest);
+}
+
+
+#include <stdio.h>  // Library used in main for testing purposes
+#include <string.h> // For comparison with standard memcpy
+
+int main(void)
+{
+    // Test case: Copy a string
+    char src[] = "Hello, world!";
+    char dest[20];  // Make sure it's big enough to hold the string
+    ft_memcpy(dest, src, strlen(src) + 1);
+    printf("ft_memcpy result: %s\n", dest);  // Expected: Hello, world!
+
+    // Test case: Copy an array of integers
+    int int_src[] = {1, 2, 3, 4, 5};
+    int int_dest[5];
+    ft_memcpy(int_dest, int_src, sizeof(int_src));
+    printf("ft_memcpy result for integer array: ");
+    for (size_t i = 0; i < 5; i++)
+    {
+        printf("%d ", int_dest[i]);  // Expected: 1 2 3 4 5
+    }
+    printf("\n");
+
+    // Test case: Compare with standard memcpy
+    char std_dest[20];
+    memcpy(std_dest, src, strlen(src) + 1);
+    printf("Standard memcpy result: %s\n", std_dest);  // Expected: Hello, world!
+
+    return 0;
 }
