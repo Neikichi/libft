@@ -17,24 +17,30 @@ BOBJ = $(BSRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
+ARFLAGS = rcs
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) -r $@ $?
+	@echo "Creating $(NAME)..."
+	@$(AR) $(ARFLAGS) $@ $(OBJ)
+	@echo "Created $(NAME)"
 
-bonus: CFLAGS += -DBONUS
 bonus: $(OBJ) $(BOBJ)
-	$(AR) -r $(NAME) $?
+	@echo "Compiling bonus ..."
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BOBJ)
+	@echo "Created $(NAME) with bonus"
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(BOBJ)
+	@echo "Removing object files..."
+	@rm -f $(OBJ) $(BOBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "Removing binary $(NAME)..."
+	@rm -f $(NAME)
 
 re: fclean all
 
