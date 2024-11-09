@@ -1,4 +1,6 @@
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /// @brief Allocate and zero-initialize an array
 /// 
@@ -21,26 +23,24 @@ void *ft_calloc(size_t nmemb, size_t size)
     return init;
 }
 
-#include <stdio.h>  // Library used in main for testing purposes
-
-int main(void)
-{
-    size_t nmemb = 3;
-    size_t size = sizeof(int);
-    int *arr = ft_calloc(nmemb, size);
-    
-    if (!arr)
-    {
-        printf("Memory allocation failed.\n");
-        return (1);
-    }
-
-    // Test case: Verify all elements are zero-initialized
-    for (size_t i = 0; i < nmemb; i++)
-    {
-        printf("arr[%zu] = %d\n", i, arr[i]);  // Expected: arr[i] = 0 for all i
-    }
-
-    free(arr);
-    return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    size_t nmemb = 3;*/
+/*    char *arr = ft_calloc(nmemb, sizeof(char));*/
+/**/
+/*    if (!arr)*/
+/*    {*/
+/*        printf("Memory allocation failed.\n");*/
+/*        return (1);*/
+/*    }*/
+/**/
+/*    for (size_t i = 0; i < nmemb; i++)*/
+/*    {*/
+/*        printf("arr[%zu] = %d\n", i, arr[i]); */
+/*    }*/
+/**/
+/*    free(arr);*/
+/*    return 0;*/
+/*}*/

@@ -1,5 +1,5 @@
 #include "libft.h"
-#include <stdlib.h>  // Required for malloc
+#include <stdlib.h>
 
 /// @brief Trim characters from the beginning and end of a string
 /// 
@@ -26,57 +26,26 @@ char *ft_strtrim(char const *s1, char const *set)
   {
     end--;
   }
-  buffer = malloc(sizeof(char) * (end - start + 1));
+  buffer = malloc(sizeof(char) * (end - start + 2));
   if (!buffer)
     return (NULL);
-  ft_strlcpy(buffer, start, (end - start + 1));
+  ft_strlcpy(buffer, start, (end - start + 2));
   return (buffer);
 }
 
 
-#include <stdio.h>  // For testing purposes
-
-int main(void)
-{
-    // Test case 1: Normal trim with characters at both ends
-    const char *s1 = "+++Hello, world!+++";
-    const char *set = "+";
-    char *result = ft_strtrim(s1, set);
-    if (result)
-    {
-        printf("ft_strtrim result: '%s'\n", result);  // Expected: "Hello, world!"
-        free(result);
-    }
-
-    // Test case 2: Trim with no characters to remove
-    const char *s2 = "Hello, world!";
-    const char *set2 = "+";
-    result = ft_strtrim(s2, set2);
-    if (result)
-    {
-        printf("ft_strtrim result: '%s'\n", result);  // Expected: "Hello, world!"
-        free(result);
-    }
-
-    // Test case 3: Trim all characters
-    const char *s3 = "+++++";
-    const char *set3 = "+";
-    result = ft_strtrim(s3, set3);
-    if (result)
-    {
-        printf("ft_strtrim result: '%s'\n", result);  // Expected: ""
-        free(result);
-    }
-
-    // Test case 4: Empty input string
-    const char *s4 = "";
-    const char *set4 = "+";
-    result = ft_strtrim(s4, set4);
-    if (result)
-    {
-        printf("ft_strtrim result: '%s'\n", result);  // Expected: ""
-        free(result);
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    const char *s1 = "+,++Hello, world!++,+";*/
+/*    const char *set = "+,";*/
+/*    char *result = ft_strtrim(s1, set);*/
+/*    if (result)*/
+/*    {*/
+/*        printf("ft_strtrim result: '%s'\n", result);*/
+/*        free(result);*/
+/*    }*/
+/**/
+/*    return 0;*/
+/*}*/

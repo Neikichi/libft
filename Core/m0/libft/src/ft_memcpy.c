@@ -1,5 +1,5 @@
 #include "libft.h"
-
+#include <stdio.h>
 
 /// @brief Copy memory area
 /// 
@@ -31,32 +31,29 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 }
 
 
-#include <stdio.h>  // Library used in main for testing purposes
-#include <string.h> // For comparison with standard memcpy
-
-int main(void)
-{
-    // Test case: Copy a string
-    char src[] = "Hello, world!";
-    char dest[20];  // Make sure it's big enough to hold the string
-    ft_memcpy(dest, src, strlen(src) + 1);
-    printf("ft_memcpy result: %s\n", dest);  // Expected: Hello, world!
-
-    // Test case: Copy an array of integers
-    int int_src[] = {1, 2, 3, 4, 5};
-    int int_dest[5];
-    ft_memcpy(int_dest, int_src, sizeof(int_src));
-    printf("ft_memcpy result for integer array: ");
-    for (size_t i = 0; i < 5; i++)
-    {
-        printf("%d ", int_dest[i]);  // Expected: 1 2 3 4 5
-    }
-    printf("\n");
-
-    // Test case: Compare with standard memcpy
-    char std_dest[20];
-    memcpy(std_dest, src, strlen(src) + 1);
-    printf("Standard memcpy result: %s\n", std_dest);  // Expected: Hello, world!
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <string.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    char src[] = "Hello, world!";*/
+/*    char dest[20];*/
+/*    ft_memcpy(dest, src, strlen(src) + 1);*/
+/*    printf("ft_memcpy result: %s\n", dest);*/
+/**/
+/*    int int_src[] = {1, 2, 3, 4, 5};*/
+/*    int int_dest[5];*/
+/*    ft_memcpy(int_dest, int_src, sizeof(int_src));*/
+/*    printf("ft_memcpy result for integer array: ");*/
+/*    for (size_t i = 0; i < 5; i++)*/
+/*    {*/
+/*        printf("%d ", int_dest[i]);*/
+/*    }*/
+/*    printf("\n");*/
+/**/
+/*    char std_dest[20];*/
+/*    memcpy(std_dest, src, strlen(src) + 1);*/
+/*    printf("Standard memcpy result: %s\n", std_dest);*/
+/**/
+/*    return 0;*/
+/*}*/

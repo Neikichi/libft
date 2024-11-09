@@ -1,5 +1,5 @@
 #include "libft.h"
-
+#include <stdio.h>
 
 /// @brief Compare two memory blocks
 /// 
@@ -33,26 +33,17 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 }
 
 
-#include <stdio.h>  // Library used in main for testing purposes
-#include <string.h> // For comparison with standard memcmp
-
-int main(void)
-{
-    // Test case: Compare two identical strings
-    char str1[] = "Hello, world!";
-    char str2[] = "Hello, world!";
-    int result = ft_memcmp(str1, str2, strlen(str1));
-    printf("ft_memcmp result for identical strings: %d\n", result);  // Expected: 0
-
-    // Test case: Compare two strings that differ
-    char str3[] = "Hello, world!";
-    char str4[] = "Hello, Word!";
-    result = ft_memcmp(str3, str4, strlen(str3));
-    printf("ft_memcmp result for different strings: %d\n", result);  // Expected: non-zero (depends on where it differs)
-
-    // Test case: Compare with standard memcmp for verification
-    int std_result = memcmp(str3, str4, strlen(str3));
-    printf("Standard memcmp result for different strings: %d\n", std_result);  // Expected: same as ft_memcmp result
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <string.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    char str1[] = "Hello, worl!";*/
+/*    char str2[] = "Hello, world!";*/
+/*    int result = ft_memcmp(str1, str2, strlen(str1));*/
+/*    printf("ft_memcmp result for identical strings: %d\n", result);*/
+/**/
+/*    int std_result = memcmp(str1, str2, strlen(str1));*/
+/*    printf("Standard memcmp result for different strings: %d\n", std_result);*/
+/*    return 0;*/
+/*}*/

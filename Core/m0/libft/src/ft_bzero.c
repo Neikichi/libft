@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdio.h>
 
 /// @brief Set memory area to zero
 /// 
@@ -13,22 +14,19 @@ void ft_bzero(void *s, size_t n)
   ft_memset(s, '\0', n);
 }
 
-#include <stdio.h>  // Library used only in main for test cases
-#include <string.h> // Required for memset used in the main
-
-int main(void)
-{
-  char buffer[10] = "123456789";
-
-  // Edge test case: n = 0, no bytes should be modified
-  ft_bzero(buffer, 0);
-  printf("ft_bzero with n=0: \"%s\"\n", buffer);  // Expected: "123456789"
-
-  // Compare with memset with zero length
-  memset(buffer, 'X', 5);
-  buffer[5] = '\0';
-  ft_bzero(buffer, 0);
-  printf("Comparison after memset and ft_bzero: \"%s\"\n", buffer); // Expected: "XXXXX"
-
-  return 0;
-}
+/*#include <stdio.h>*/
+/*#include <string.h>*/
+/*int main(void)*/
+/*{*/
+/*  char buffer[] = "123456789";*/
+/**/
+/*  ft_bzero(buffer, 0);*/
+/*  printf("ft_bzero with n=0: \"%s\"\n", buffer);*/
+/**/
+/*  memset(buffer, 'X', 5);*/
+/*  buffer[5] = '\0';*/
+/*  ft_bzero(buffer, 0);*/
+/*  printf("Comparison after memset and ft_bzero: \"%s\"\n", buffer);*/
+/**/
+/*  return 0;*/
+/*}*/

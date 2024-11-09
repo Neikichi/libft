@@ -1,5 +1,5 @@
 #include "libft.h"
-#include <stdlib.h> // Required for memory management functions
+#include <stdlib.h>
 
 /// @brief Delete a single element of the list
 /// 
@@ -17,50 +17,46 @@ void ft_lstdelone(t_list *lst, void (*del)(void *))
   free(lst);
 }
 
-#include <stdio.h>  // Library used in main for testing purposes
-
-/// @brief Delete content of list element
-/// 
-/// This function is used to delete the content of a list element.
-/// 
-/// @param content A pointer to the content to be deleted
-void ft_del(void *content)
-{
-    free(content);
-}
-
-t_list *ft_lstnew(int value)
-{
-    t_list *node = malloc(sizeof(t_list));
-    if (!node)
-        return (NULL);
-    int *content = malloc(sizeof(int));
-    if (!content)
-    {
-        free(node);
-        return (NULL);
-    }
-    *content = value;
-    node->content = content;
-    node->next = NULL;
-    return (node);
-}
-
-int main(void)
-{
-    // Create a list with a single node
-    t_list *node = ft_lstnew(42);
-
-    // Print the content of the node before deleting
-    if (node)
-    {
-        printf("Before deleting: %d\n", *(int *)node->content);
-    }
-
-    // Delete the node using ft_lstdelone
-    ft_lstdelone(node, ft_del);
-
-    // After deletion, the node should no longer exist (printing would result in undefined behavior)
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*void ft_del(void *content)*/
+/*{*/
+/*    printf("Deleting content: %s\n", (char *)content);*/
+/*    free(content);*/
+/*}*/
+/*int main(void)*/
+/*{*/
+/*    t_list node3 = {"node3", NULL};*/
+/*    t_list node2 = {"node2", &node3};*/
+/*    t_list node1 = {"node1", &node2};*/
+/*    t_list *head = &node1;*/
+/**/
+/*    t_list *nodes = malloc(sizeof(t_list));*/
+/*    char *ncont = ft_strdup("Hello");*/
+/*    nodes->content = ncont;*/
+/*    nodes->next = NULL;*/
+/*    ft_lstadd_back(&head, nodes);*/
+/**/
+/**/
+/**/
+/*    t_list *temp = head;*/
+/*    printf("List before deletion:\n");*/
+/*    while (temp)*/
+/*    {*/
+/*        printf("%s -> ", (char *)temp->content);*/
+/*        temp = temp->next;*/
+/*    }*/
+/*    printf("NULL\n");*/
+/**/
+/*    ft_lstdelone(nodes, ft_del);*/
+/*    node3.next = NULL;*/
+/**/
+/*    temp = head;*/
+/*    printf("\nList after deletion:\n");*/
+/*    while (temp)*/
+/*    {*/
+/*        printf("%s -> ", (char *)temp->content);*/
+/*        temp = temp->next;*/
+/*    }*/
+/*    printf("NULL\n");*/
+/*    return 0;*/
+/*}*/

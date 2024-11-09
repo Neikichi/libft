@@ -1,5 +1,5 @@
 #include "libft.h"
-
+#include <stdio.h>
 
 /// @brief Locate byte in block of memory
 /// 
@@ -29,33 +29,24 @@ void *ft_memchr(const void *s, int c, size_t n)
 }
 
 
-#include <stdio.h>  // Library used in main for testing purposes
-#include <string.h> // For comparison with standard memchr
-
-int main(void)
-{
-    char str[] = "Hello, world!";
-
-    // Test case: Find character 'w' in the string
-    char *result = ft_memchr(str, 'w', strlen(str));
-    if (result)
-        printf("Found character 'w' at position: %ld\n", result - str);  // Expected: Found at position 7
-    else
-        printf("Character 'w' not found.\n");
-
-    // Test case: Find character 'z' (not present)
-    result = ft_memchr(str, 'z', strlen(str));
-    if (result)
-        printf("Found character 'z' at position: %ld\n", result - str);
-    else
-        printf("Character 'z' not found.\n");  // Expected: Character not found
-
-    // Test case: Compare with standard memchr
-    char *std_result = memchr(str, 'w', strlen(str));
-    if (std_result)
-        printf("Standard memchr found 'w' at position: %ld\n", std_result - str);  // Expected: Found at position 7
-    else
-        printf("Standard memchr: Character 'w' not found.\n");
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <string.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    char str[] = "Hello, world!";*/
+/**/
+/*    char *result = ft_memchr(str, 'w', strlen(str));*/
+/*    if (result)*/
+/*        printf("Found character 'w' at position: %ld\n", result - str);*/
+/*    else*/
+/*        printf("Character 'w' not found.\n");*/
+/**/
+/*    char *std_result = memchr(str, 'w', strlen(str));*/
+/*    if (std_result)*/
+/*        printf("Standard memchr found 'w' at position: %ld\n", std_result - str);*/
+/*    else*/
+/*        printf("Standard memchr: Character 'w' not found.\n");*/
+/**/
+/*    return 0;*/
+/*}*/

@@ -1,8 +1,8 @@
 #include "libft.h"
-#include <stdlib.h> // For malloc
+#include <stdlib.h>
 
 static char **ft_split_ex(char const *s, char c, char **result);
-static int ft_countword(const char *str, char *charset);
+static int ft_countword(const char *str, char c);
 
 /// @brief Split a string into words based on a given delimiter
 /// 
@@ -17,15 +17,15 @@ char  **ft_split(char const *s, char c)
   char **result;
   int size;
 
-  if (*s == '\0')
+  if (!s || *s == '\0')
   {
-    result = malloc(sizeof(char *) * 1 + 1);
+    result = malloc(sizeof(char *));
     if (!result)
       return (NULL);
     result[0] = NULL;
     return (result);
   }
-  size = ft_countword(s, &c);
+  size = ft_countword(s, c);
   result = malloc(sizeof(char *) * (size + 1));
   if (!result)
     return (NULL);
@@ -40,17 +40,25 @@ static char **ft_split_ex(char const *s, char c, char **result)
   i = 0;
   while (*s)
   {
-    while (*s && ft_strchr(&c, *s))
+    while (*s && (*s == c))
       s++;
     if (*s)
     {
       ptr = s;
-      while (*ptr && !ft_strchr(&c, *s))
+      while (*ptr && (*ptr != c))
         ptr++;
-      result = malloc(sizeof(char) * (ptr - s + 1));
-      if (!result)
+      result[i] = malloc(sizeof(char) * (ptr - s + 1));
+      if (!result[i])
+      {
+        while (i > 0)
+        {
+          i--;
+          free(result[i]);
+        }
+        free(result);
         return (NULL);
-      ft_strlcpy(result[i], s, (ptr - s));
+      }
+      ft_strlcpy(result[i], s, (ptr - s + 1));
       i++;
       s = ptr;
     }
@@ -59,7 +67,7 @@ static char **ft_split_ex(char const *s, char c, char **result)
   return (result);
 }
 
-static int ft_countword(const char *str, char *charset)
+static int ft_countword(const char *str, char c)
 {
   int cnt;
   int flag;
@@ -70,7 +78,7 @@ static int ft_countword(const char *str, char *charset)
   while (*str)
   {
     set = 0;
-    if(ft_strchr(charset, *str))
+    if(*str == c)
       set = 1;
     if (set == 0 && flag == 0)
     {
@@ -85,42 +93,39 @@ static int ft_countword(const char *str, char *charset)
 }
 
 
-#include <stdio.h> // For testing purposes
-
-int main(void)
-{
-    // Test case 1: Basic usage
-    char **result = ft_split("Hello,world,this,is,a,test", ',');
-    if (result)
-    {
-        for (int i = 0; result[i] != NULL; i++)
-        {
-            printf("Word %d: %s\n", i, result[i]);
-            free(result[i]);
-        }
-        free(result);
-    }
-
-    // Test case 2: Delimiter at the start and end
-    result = ft_split(",start,middle,end,", ',');
-    if (result)
-    {
-        for (int i = 0; result[i] != NULL; i++)
-        {
-            printf("Word %d: %s\n", i, result[i]);
-            free(result[i]);
-        }
-        free(result);
-    }
-
-    // Test case 3: Empty string
-    result = ft_split("", ',');
-    if (result)
-    {
-        if (result[0] == NULL)
-            printf("Empty string result: NULL\n");
-        free(result);
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    char **result = ft_split("Hello,world,this,is,a,test", ',');*/
+/*    if (result)*/
+/*    {*/
+/*        for (int i = 0; result[i] != NULL; i++)*/
+/*        {*/
+/*            printf("Word %d: %s\n", i, result[i]);*/
+/*            free(result[i]);*/
+/*        }*/
+/*        free(result);*/
+/*    }*/
+/**/
+/*    result = ft_split(",start,middle,end,", ',');*/
+/*    if (result)*/
+/*    {*/
+/*        for (int i = 0; result[i] != NULL; i++)*/
+/*        {*/
+/*            printf("Word %d: %s\n", i, result[i]);*/
+/*            free(result[i]);*/
+/*        }*/
+/*        free(result);*/
+/*    }*/
+/**/
+/*    result = ft_split("", ',');*/
+/*    if (result)*/
+/*    {*/
+/*        if (result[0] == NULL)*/
+/*            printf("Empty string result: NULL\n");*/
+/*        free(result);*/
+/*    }*/
+/**/
+/*    return 0;*/
+/*}*/

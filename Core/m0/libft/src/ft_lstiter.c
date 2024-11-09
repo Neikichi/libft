@@ -21,66 +21,56 @@ void ft_lstiter(t_list *lst, void (*f)(void *))
   }
 }
 
-
-#include <stdio.h>  // Library used in main for testing purposes
-#include <stdlib.h> // Required for malloc and free
-
-/// @brief Print the content of a list element
-/// 
-/// This function prints the integer content of a list element.
-/// 
-/// @param content A pointer to the content to be printed
-void ft_print(void *content)
-{
-    printf("%d -> ", *(int *)content);
-}
-
-/// @brief Create a new list element
-/// 
-/// This function creates a new linked list element with the given value.
-/// 
-/// @param value The integer value for the new list element
-/// @return A pointer to the newly created list element
-t_list *ft_lstnew(int value)
-{
-    t_list *node = malloc(sizeof(t_list));
-    if (!node)
-        return (NULL);
-    int *content = malloc(sizeof(int));
-    if (!content)
-    {
-        free(node);
-        return (NULL);
-    }
-    *content = value;
-    node->content = content;
-    node->next = NULL;
-    return (node);
-}
-
-int main(void)
-{
-    // Create a list with three nodes
-    t_list *head = ft_lstnew(1);
-    t_list *node2 = ft_lstnew(2);
-    t_list *node3 = ft_lstnew(3);
-    head->next = node2;
-    node2->next = node3;
-
-    // Apply ft_lstiter to print the content of each node
-    printf("List content: ");
-    ft_lstiter(head, ft_print);
-    printf("NULL\n");
-
-    // Free the list
-    t_list *temp = head;
-    while (temp)
-    {
-        t_list *next = temp->next;
-        free(temp->content);
-        free(temp);
-        temp = next;
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <stdlib.h>*/
+/*void ft_del(void *content)*/
+/*{*/
+/*  printf("Adding content: %s\n", (char *)content);*/
+/*  char *ptr = content;*/
+/*  while (*ptr)*/
+/*  {*/
+/*    *ptr = ft_toupper(*ptr);*/
+/*    ptr++;*/
+/*  }*/
+/*}*/
+/*int main(void)*/
+/*{*/
+/*    t_list *node3 = ft_lstnew(ft_strdup("node3"));*/
+/*    t_list *node2 = ft_lstnew(ft_strdup("node2"));*/
+/*    t_list *node1 = ft_lstnew(ft_strdup("node1"));*/
+/*    t_list *head = ft_lstnew(ft_strdup("head"));*/
+/**/
+/*    t_list *nodes = malloc(sizeof(t_list));*/
+/*    char *ncont = ft_strdup("Hello");*/
+/*    nodes->content = ncont;*/
+/*    nodes->next = NULL;*/
+/*    ft_lstadd_back(&head, nodes);*/
+/*    ft_lstadd_back(&head, node1);*/
+/*    ft_lstadd_back(&head, node2);*/
+/*    ft_lstadd_back(&head, node3);*/
+/**/
+/*    t_list *temp = head;*/
+/*    printf("List before deletion:\n");*/
+/*    while (temp)*/
+/*    {*/
+/*        printf("%s -> ", (char *)temp->content);*/
+/*        temp = temp->next;*/
+/*    }*/
+/*    printf("NULL\n");*/
+/**/
+/*    ft_lstiter(head, ft_del);*/
+/**/
+/*    temp = head;*/
+/*    printf("\nList after deletion:\n");*/
+/*    while (temp)*/
+/*    {*/
+/*        printf("%s -> ", (char *)temp->content);*/
+/*        temp = temp->next;*/
+/*    }*/
+/*    printf("NULL\n");*/
+/*    return 0;*/
+/*}*/
+/**/
+/**/
+/**/
+/**/

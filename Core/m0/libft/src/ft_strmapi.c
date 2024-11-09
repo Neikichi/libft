@@ -1,5 +1,5 @@
 #include "libft.h"
-#include <stdlib.h> // Required for malloc
+#include <stdlib.h>
 
 /// @brief Apply a function to each character of a string to create a new string
 /// 
@@ -29,48 +29,29 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 }
 
 
-#include <stdio.h> // For testing purposes
-
-/// @brief Example function to modify each character of a string
-/// 
-/// This function increments each character by one.
-/// 
-/// @param i The index of the character (not used in this function)
-/// @param c The character to be modified
-/// @return The modified character (incremented by one)
-char modify_char(unsigned int i, char c)
-{
-    (void)i; // Unused parameter
-    return (c + 1);
-}
-
-int main(void)
-{
-    // Test case: Apply ft_strmapi to modify a string
-    const char *str = "abc";
-    char *result = ft_strmapi(str, modify_char);
-    if (result)
-    {
-        printf("ft_strmapi result: %s\n", result);  // Expected: "bcd"
-        free(result);
-    }
-    else
-    {
-        printf("ft_strmapi failed to allocate memory.\n");
-    }
-
-    // Test case: Apply ft_strmapi to an empty string
-    const char *empty_str = "";
-    char *empty_result = ft_strmapi(empty_str, modify_char);
-    if (empty_result)
-    {
-        printf("ft_strmapi result for empty string: '%s'\n", empty_result);  // Expected: ''
-        free(empty_result);
-    }
-    else
-    {
-        printf("ft_strmapi failed to allocate memory for empty string.\n");
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*char f(unsigned int i, char c)*/
+/*{*/
+/*    if (i % 2 == 0 && c >= 'a' && c <= 'z')*/
+/*    {*/
+/*        return (c - 32);*/
+/*    }*/
+/*    return (c);*/
+/*}*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    const char *str = "abc";*/
+/*    char *result = ft_strmapi(str, f);*/
+/*    if (result)*/
+/*    {*/
+/*        printf("ft_strmapi result: %s\n", result);*/
+/*        free(result);*/
+/*    }*/
+/*    else*/
+/*    {*/
+/*        printf("ft_strmapi failed to allocate memory.\n");*/
+/*    }*/
+/**/
+/*    return 0;*/
+/*}*/

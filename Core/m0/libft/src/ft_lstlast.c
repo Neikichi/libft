@@ -18,62 +18,20 @@ t_list *ft_lstlast(t_list *lst)
   return (lst);
 }
 
-
-#include <stdio.h>  // Library used in main for testing purposes
-#include <stdlib.h> // Required for malloc and free
-
-/// @brief Create a new list element
-/// 
-/// This function creates a new linked list element with the given value.
-/// 
-/// @param value The integer value for the new list element
-/// @return A pointer to the newly created list element
-t_list *ft_lstnew(int value)
-{
-    t_list *node = malloc(sizeof(t_list));
-    if (!node)
-        return (NULL);
-    int *content = malloc(sizeof(int));
-    if (!content)
-    {
-        free(node);
-        return (NULL);
-    }
-    *content = value;
-    node->content = content;
-    node->next = NULL;
-    return (node);
-}
-
-int main(void)
-{
-    // Create a list with three nodes
-    t_list *head = ft_lstnew(1);
-    t_list *node2 = ft_lstnew(2);
-    t_list *node3 = ft_lstnew(3);
-    head->next = node2;
-    node2->next = node3;
-
-    // Get the last element of the list
-    t_list *last = ft_lstlast(head);
-    if (last)
-    {
-        printf("Last element content: %d\n", *(int *)last->content);  // Expected: 3
-    }
-    else
-    {
-        printf("The list is empty.\n");
-    }
-
-    // Free the list
-    t_list *temp = head;
-    while (temp)
-    {
-        t_list *next = temp->next;
-        free(temp->content);
-        free(temp);
-        temp = next;
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <stdlib.h>*/
+/*int main(void)*/
+/*{*/
+/*    t_list node3 = {"node3", NULL};*/
+/*    t_list node2 = {"node2", &node3};*/
+/*    t_list head = {"head", &node2};*/
+/**/
+/*    t_list *last = ft_lstlast(&head);*/
+/*    if (last)*/
+/*    {*/
+/*        printf("Last node content: %s\n", (char *)last->content);*/
+/*    }*/
+/**/
+/*    return 0;*/
+/*}*/
+/**/

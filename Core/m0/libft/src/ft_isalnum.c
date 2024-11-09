@@ -13,18 +13,3 @@ int ft_isalnum(int c)
         return (1);
     return (0);
 }
-
-#include <stdio.h>  // Library used in main for testing purposes
-
-int main(void)
-{
-    // Test case: Edge character, '0' should return 1 since it is a digit
-    char test_char = '0';
-    printf("ft_isalnum('%c') = %d\n", test_char, ft_isalnum(test_char));  // Expected: 1
-
-    // Test case: '@' should return 0 since it's neither a letter nor a digit
-    test_char = '@';
-    printf("ft_isalnum('%c') = %d\n", test_char, ft_isalnum(test_char));  // Expected: 0
-
-    return 0;
-}

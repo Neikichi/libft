@@ -23,46 +23,34 @@ char *ft_strdup(const char *s)
 }
 
 
-#include <stdio.h>  // For testing purposes
-#include <string.h> // For comparison with standard strdup
-
-int main(void)
-{
-    // Test case: Duplicate a string
-    const char *src = "Hello, world!";
-    char *dup = ft_strdup(src);
-
-    if (dup)
-    {
-        printf("ft_strdup result: %s\n", dup);  // Expected: Hello, world!
-        free(dup);
-    }
-    else
-    {
-        printf("ft_strdup failed to allocate memory.\n");
-    }
-
-    // Test case: Duplicate an empty string
-    const char *empty_src = "";
-    char *empty_dup = ft_strdup(empty_src);
-
-    if (empty_dup)
-    {
-        printf("ft_strdup result for empty string: '%s'\n", empty_dup);  // Expected: ''
-        free(empty_dup);
-    }
-    else
-    {
-        printf("ft_strdup failed to allocate memory for empty string.\n");
-    }
-
-    // Test case: Compare with standard strdup
-    char *std_dup = strdup(src);
-    if (std_dup)
-    {
-        printf("Standard strdup result: %s\n", std_dup);  // Expected: Hello, world!
-        free(std_dup);
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <string.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    const char *src = "Hello, world!";*/
+/*    char *dup = ft_strdup(src);*/
+/**/
+/*    if (dup)*/
+/*    {*/
+/*        printf("ft_strdup result: %s\n", dup);*/
+/*        free(dup);*/
+/*    }*/
+/*    else*/
+/*    {*/
+/*        printf("ft_strdup failed to allocate memory.\n");*/
+/*    }*/
+/**/
+/*    char *std_dup = strdup(src);*/
+/*    if (std_dup)*/
+/*    {*/
+/*        printf("strdup result: %s\n", std_dup);*/
+/*        free(std_dup);*/
+/*    }*/
+/*    else*/
+/*    {*/
+/*        printf("strdup failed to allocate memory.\n");*/
+/*    }*/
+/**/
+/*    return 0;*/
+/*}*/

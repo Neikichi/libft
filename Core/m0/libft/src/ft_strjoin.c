@@ -1,5 +1,5 @@
 #include "libft.h"
-#include <stdlib.h>  // Required for malloc
+#include <stdlib.h>
 
 /// @brief Concatenate two strings into a new dynamically allocated string
 /// 
@@ -17,49 +17,28 @@ char *ft_strjoin(char const *s1, char const *s2)
   buffer = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
   if (!buffer)
     return (NULL);
-  ft_strlcpy(buffer, s1, ft_strlen(s1));
+  ft_strlcpy(buffer, s1, ft_strlen(s1) + 1);
   ft_strlcat(buffer, s2, (ft_strlen(s1) + ft_strlen(s2) + 1));
   return (buffer);
 } 
 
 
-#include <stdio.h>  // For testing purposes
-
-int main(void)
-{
-    // Test case 1: Basic concatenation
-    const char *s1 = "Hello, ";
-    const char *s2 = "world!";
-    char *result = ft_strjoin(s1, s2);
-    if (result)
-    {
-        printf("ft_strjoin result: %s\n", result);  // Expected: Hello, world!
-        free(result);
-    }
-    else
-    {
-        printf("ft_strjoin failed to allocate memory.\n");
-    }
-
-    // Test case 2: Empty strings
-    char *empty_result = ft_strjoin("", "");
-    if (empty_result)
-    {
-        printf("ft_strjoin result for empty strings: '%s'\n", empty_result);  // Expected: ''
-        free(empty_result);
-    }
-    else
-    {
-        printf("ft_strjoin failed to allocate memory for empty strings.\n");
-    }
-
-    // Test case 3: One empty string and one non-empty string
-    char *one_empty_result = ft_strjoin("Hello", "");
-    if (one_empty_result)
-    {
-        printf("ft_strjoin result for one empty string: '%s'\n", one_empty_result);  // Expected: 'Hello'
-        free(one_empty_result);
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    const char *s1 = "Hello, ";*/
+/*    const char *s2 = "world!";*/
+/*    char *result = ft_strjoin(s1, s2);*/
+/*    if (result)*/
+/*    {*/
+/*        printf("ft_strjoin result: %s\n", result);*/
+/*        free(result);*/
+/*    }*/
+/*    else*/
+/*    {*/
+/*        printf("ft_strjoin failed to allocate memory.\n");*/
+/*    }*/
+/**/
+/*    return 0;*/
+/*}*/

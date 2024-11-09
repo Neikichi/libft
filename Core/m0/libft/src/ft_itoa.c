@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdlib.h>
 
 static int ft_countdigits(long int n);
 static char *ft_itoa_ex(int n);
@@ -27,6 +28,7 @@ static char *ft_itoa_ex(int n)
   int size;
   char *buffer;
 
+  neg = 0;
   if (n < 0)
   {
     n = -n;
@@ -38,10 +40,10 @@ static char *ft_itoa_ex(int n)
     return (NULL);
   if (neg)
     buffer[0] = '-';
-  buffer[size + 1] = '\0';
+  buffer[size] = '\0';
   while (size != neg)
   {
-    buffer[size] = (n % 10) + '0';
+    buffer[size - 1] = (n % 10) + '0';
     size--;
     n /= 10;
   }
@@ -61,27 +63,26 @@ static int ft_countdigits(long int n)
   return (count);
 }
 
-#include <stdio.h>  // Library used in main for testing purposes
-
-int main(void)
-{
-  // Test cases for ft_itoa
-  int test_values[] = {0, -2147483648, 2147483647, -12345, 12345};
-  char *result;
-
-  for (int i = 0; i < 5; i++)
-  {
-    result = ft_itoa(test_values[i]);
-    if (result)
-    {
-      printf("ft_itoa(%d) = %s\n", test_values[i], result);
-      free(result);
-    }
-    else
-    {
-      printf("ft_itoa(%d) = NULL (Memory allocation failed)\n", test_values[i]);
-    }
-  }
-
-  return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*  int test_values[] = {0, -2147483648, 2147483647, -12345, 12345};*/
+/*  char *result;*/
+/**/
+/*  for (int i = 0; i < 5; i++)*/
+/*  {*/
+/*    result = ft_itoa(test_values[i]);*/
+/*    if (result)*/
+/*    {*/
+/*      printf("ft_itoa(%d) = %s\n", test_values[i], result);*/
+/*      free(result);*/
+/*    }*/
+/*    else*/
+/*    {*/
+/*      printf("ft_itoa(%d) = NULL (Memory allocation failed)\n", test_values[i]);*/
+/*    }*/
+/*  }*/
+/**/
+/*  return 0;*/
+/*}*/

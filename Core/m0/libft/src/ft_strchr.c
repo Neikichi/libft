@@ -25,31 +25,16 @@ char *ft_strchr(const char *s, int c)
 }
 
 
-#include <stdio.h> // For testing purposes
-
-int main(void)
-{
-    // Test case: Find character in the middle of the string
-    const char *str = "Hello, world!";
-    char *result = ft_strchr(str, 'w');
-    if (result)
-        printf("Character 'w' found at position: %ld\n", result - str);  // Expected: position 7
-    else
-        printf("Character 'w' not found.\n");
-
-    // Test case: Find the null terminator
-    result = ft_strchr(str, '\0');
-    if (result)
-        printf("Null terminator found at position: %ld\n", result - str);  // Expected: position 13
-    else
-        printf("Null terminator not found.\n");
-
-    // Test case: Character not found
-    result = ft_strchr(str, 'z');
-    if (result)
-        printf("Character 'z' found at position: %ld\n", result - str);
-    else
-        printf("Character 'z' not found.\n");  // Expected: not found
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    const char *str = "Hello, world!";*/
+/*    char *result = ft_strchr(str, 'w');*/
+/*    if (result)*/
+/*        printf("Char found: %s at %ld\n", result, result - str);*/
+/*    else*/
+/*        printf("Char not found.\n");*/
+/**/
+/*    return 0;*/
+/*}*/

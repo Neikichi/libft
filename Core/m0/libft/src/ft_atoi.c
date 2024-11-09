@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// add more library if needed in the function except main
+
 static int ft_isspace(int c);
 
-// provide a brief description simple for each of the via comment below format.
 /// @brief ASCII to INTEGER conversion
 /// @param nptr takes in strings or char
 /// @return 0 if fail or the digits in INT
@@ -50,15 +49,13 @@ static int ft_isspace(int c)
     return (0);
 }
 
-#include <stdio.h>  // Library used for test cases
-int main(void)
-{
-  // Edge test case
-  const char *test_case1 = "   \t\n  -12345abc";
-  printf("ft_atoi(\"%s\") = %d\n", test_case1, ft_atoi(test_case1));
-
-  // Compare with original atoi function from standard library
-  printf("atoi(\"%s\") = %d\n", test_case1, atoi(test_case1));
-
-  return 0;
-}
+/*#include <stdio.h>  */
+/*#include <stdlib.h>*/
+/*int main(void)*/
+/*{*/
+/*  const char *test_case1 = "   \t\n  -12345abc";*/
+/*  printf("ft_atoi(\"%s\") = %d\n", test_case1, ft_atoi(test_case1));*/
+/*  printf("atoi(\"%s\") = %d\n", test_case1, atoi(test_case1));*/
+/**/
+/*  return 0;*/
+/*}*/

@@ -1,5 +1,7 @@
 #include "libft.h"
 
+static int ft_isupper(int c);
+static int ft_islower(int c);
 /// @brief Check if character is an alphabetic letter
 /// 
 /// This function checks whether the given character `c` is either an uppercase
@@ -14,21 +16,16 @@ int ft_isalpha(int c)
     return (0);
 }
 
-#include <stdio.h>  // Library used in main for testing purposes
-
-int main(void)
+static int ft_isupper(int c)
 {
-    // Test case: 'A' should return 1 since it is an uppercase alphabetic character
-    char test_char = 'A';
-    printf("ft_isalpha('%c') = %d\n", test_char, ft_isalpha(test_char));  // Expected: 1
+    if (c >= 'A' && c <= 'Z')
+        return (1);
+    return (0);
+}
 
-    // Test case: 'g' should return 1 since it is a lowercase alphabetic character
-    test_char = 'g';
-    printf("ft_isalpha('%c') = %d\n", test_char, ft_isalpha(test_char));  // Expected: 1
-
-    // Test case: '5' should return 0 since it is not an alphabetic character
-    test_char = '5';
-    printf("ft_isalpha('%c') = %d\n", test_char, ft_isalpha(test_char));  // Expected: 0
-
-    return 0;
+static int ft_islower(int c)
+{
+    if (c >= 'a' && c <= 'z')
+        return (1);
+    return (0);
 }

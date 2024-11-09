@@ -17,45 +17,28 @@ char *ft_strrchr(const char *s, int c)
     ptr = NULL;
     while (*s)
     {
-        if (*s == (char)c)
+        if ((unsigned char)*s == (unsigned char)c)
             ptr = (char *)s;
         s++;
     }
-    if ((char)c == '\0')
+    if ((unsigned char)c == '\0')
         return ((char *)s);
     return (ptr);
 }
 
 
-#include <stdio.h> // For testing purposes
-#include <string.h> // For comparison with standard strrchr
-
-int main(void)
-{
-    // Test case 1: Character appears multiple times
-    const char *str1 = "Hello, world!";
-    char *result1 = ft_strrchr(str1, 'o');
-    printf("ft_strrchr result: %s\n", result1 ? result1 : "NULL");  // Expected: "orld!"
-
-    // Test case 2: Character appears only once
-    const char *str2 = "Hello, world!";
-    char *result2 = ft_strrchr(str2, 'H');
-    printf("ft_strrchr result: %s\n", result2 ? result2 : "NULL");  // Expected: "Hello, world!"
-
-    // Test case 3: Character not found
-    const char *str3 = "Hello, world!";
-    char *result3 = ft_strrchr(str3, 'z');
-    printf("ft_strrchr result: %s\n", result3 ? result3 : "NULL");  // Expected: NULL
-
-    // Test case 4: Null terminator search
-    const char *str4 = "Hello, world!";
-    char *result4 = ft_strrchr(str4, '\0');
-    printf("ft_strrchr result for null terminator: %s\n", result4 ? result4 : "NULL");  // Expected: ""
-
-    // Test case 5: Compare with standard strrchr
-    const char *str5 = "Hello, world!";
-    char *std_result = strrchr(str5, 'o');
-    printf("Standard strrchr result: %s\n", std_result ? std_result : "NULL");  // Expected: "orld!"
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <string.h>*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    const char *str1 = "Hello, \xE1world!";*/
+/*    char *result1 = ft_strrchr(str1, 'd');*/
+/*    printf("ft_strrchr result: %s\n", result1 ? result1 : "NULL");*/
+/**/
+/*    const char *str2 = "Hello, \xE1world!";*/
+/*    char *std_result = strrchr(str2, 'd');*/
+/*    printf("Standard strrchr result: %s\n", std_result ? std_result : "NULL");*/
+/**/
+/*    return 0;*/
+/*}*/

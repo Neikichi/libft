@@ -3,10 +3,11 @@
 
 /// @brief Apply a function to each character of a string with its index
 /// 
-/// This function iterates over each character of the string `s` and applies the
-/// function `f` to it, passing the character's index as the first argument and
-/// a pointer to the character as the second argument.
-/// 
+/// Applies the function ’f’ on each character of
+/// the string passed as argument, passing its index
+/// as first argument. Each character is passed by
+/// address to ’f’ to be modified if necessary.
+///  
 /// @param s The string to be iterated over
 /// @param f The function to apply to each character of the string
 void ft_striteri(char *s, void (*f)(unsigned int, char*))
@@ -22,35 +23,23 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
 }
 
 
-#include <stdio.h>  // For testing purposes
-
-/// @brief Example function to modify each character of a string
-/// 
-/// This function capitalizes each character in a string passed to it.
-/// 
-/// @param i The index of the character (not used in this function)
-/// @param c A pointer to the character to be modified
-void capitalize(unsigned int i, char *c)
-{
-    if (*c >= 'a' && *c <= 'z')
-    {
-        *c -= 32;
-    }
-}
-
-int main(void)
-{
-    // Test case: Apply ft_striteri to capitalize a string
-    char str[] = "hello, world!";
-    printf("Original string: %s\n", str);
-    ft_striteri(str, capitalize);
-    printf("Modified string: %s\n", str);  // Expected: HELLO, WORLD!
-
-    // Test case: Apply ft_striteri to an empty string
-    char empty_str[] = "";
-    printf("Original empty string: '%s'\n", empty_str);
-    ft_striteri(empty_str, capitalize);
-    printf("Modified empty string: '%s'\n", empty_str);  // Expected: ''
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/**/
+/*void f(unsigned int i, char *c)*/
+/*{*/
+/*    if (i % 2 == 0 && *c >= 'a' && *c <= 'z')*/
+/*    {*/
+/*        *c -= 32;*/
+/*    }*/
+/*}*/
+/**/
+/*int main(void)*/
+/*{*/
+/*    char str1[] = "hello, world!";*/
+/*    printf("Original string 1: %s\n", str1);*/
+/*    ft_striteri(str1, f);*/
+/*    printf("Modified string 1: %s\n", str1);*/
+/**/
+/**/
+/*    return 0;*/
+/*}*/

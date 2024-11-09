@@ -16,38 +16,28 @@ void ft_lstadd_front(t_list **lst, t_list *new)
   *lst = new;
 }
 
-#include <stdio.h>  // Library used in main for testing purposes
-#include <stdlib.h> // Required for malloc and free
-int main(void)
-{
-    // Create an initial list with one node
-    t_list *head = ft_lstnew(2);
-
-    // Add a new node at the front of the list
-    t_list *new_node1 = ft_lstnew(1);
-    ft_lstadd_front(&head, new_node1);
-
-    // Add another node at the front of the list
-    t_list *new_node2 = ft_lstnew(0);
-    ft_lstadd_front(&head, new_node2);
-
-    // Traverse the list and print the content
-    t_list *temp = head;
-    while (temp)
-    {
-        printf("%d -> ", temp->content);
-        temp = temp->next;
-    }
-    printf("NULL\n");
-
-    // Free the list
-    temp = head;
-    while (temp)
-    {
-        t_list *next = temp->next;
-        free(temp);
-        temp = next;
-    }
-
-    return 0;
-}
+/*#include <stdio.h>*/
+/*#include <stdlib.h>*/
+/*int main(void)*/
+/*{*/
+/*    t_list node3 = {"node3", NULL};*/
+/*    t_list node2 = {"node2", NULL};*/
+/*    t_list node1 = {"node1", NULL};*/
+/*    t_list *head = NULL;*/
+/**/
+/*    ft_lstadd_front(&head, &node1);*/
+/*    ft_lstadd_front(&head, &node2);*/
+/*    ft_lstadd_front(&head, &node3);*/
+/**/
+/*    t_list *temp = head;*/
+/*    while (temp)*/
+/*    {*/
+/*        printf("%s -> ", (char*)temp->content);*/
+/*        temp = temp->next;*/
+/*    }*/
+/*    printf("NULL\n");*/
+/**/
+/*    return 0;*/
+/*}*/
+/**/
+/**/
