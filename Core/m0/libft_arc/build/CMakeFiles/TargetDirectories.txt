@@ -1,0 +1,3 @@
+/mnt/d/Code/Projects/42KL/Core/m0/libft/build/CMakeFiles/libft.dir
+/mnt/d/Code/Projects/42KL/Core/m0/libft/build/CMakeFiles/edit_cache.dir
+/mnt/d/Code/Projects/42KL/Core/m0/libft/build/CMakeFiles/rebuild_cache.dir

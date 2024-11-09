@@ -1,3 +1,0 @@
-/home/vlow/WorkMain/m0/libft/build/CMakeFiles/my_library.dir
-/home/vlow/WorkMain/m0/libft/build/CMakeFiles/edit_cache.dir
-/home/vlow/WorkMain/m0/libft/build/CMakeFiles/rebuild_cache.dir
