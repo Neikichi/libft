@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:08:27 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:10:23 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:39:07 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/09 23:08:17 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Locate byte in block of memory
 /// 

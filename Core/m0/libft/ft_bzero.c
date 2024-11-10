@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 14:59:17 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 14:59:52 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:32:42 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/09 23:05:00 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Set memory area to zero
 /// 

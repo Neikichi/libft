@@ -14,7 +14,7 @@ BSRC = \
 OBJ = $(SRC:.c=.o)
 BOBJ = $(BSRC:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
@@ -44,4 +44,9 @@ fclean: clean
 
 re: fclean all
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BSRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BOBJ)
+
 .PHONY: all bonus clean fclean re
+

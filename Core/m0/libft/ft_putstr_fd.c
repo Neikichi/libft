@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:21:58 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:22:11 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:39:47 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 16:39:26 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 /// @param fd The file descriptor to write to (e.g., `1` for standard output)
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s || !fd)
+		return ;
 	while (*s)
 	{
 		ft_putchar_fd(*s, fd);

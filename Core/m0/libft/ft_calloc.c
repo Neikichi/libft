@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 15:03:29 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 15:04:48 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:33:43 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 17:03:00 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /// @brief Allocate and zero-initialize an array
@@ -25,9 +24,11 @@
 /// @return Pointer to allocated memory, or NULL if allocation fails
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*init;
+	void			*init;
 	size_t			i;
 
+	if (nmemb > (size_t)-1 / size)
+		return (NULL);
 	i = nmemb * size;
 	init = malloc(i);
 	if (!init)

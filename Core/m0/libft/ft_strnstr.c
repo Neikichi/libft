@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 17:01:02 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 17:01:46 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:40:37 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 17:04:31 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Locate a substring in a string, up to a maximum length
 /// 
@@ -29,6 +29,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if ((!big || !little) && len == 0)
+		return (NULL);
 	i = 0;
 	if (!*little)
 		return ((char *)big);

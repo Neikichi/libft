@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 17:04:29 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 17:05:14 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:40:49 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/09 22:43:35 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 /// @brief Create a substring from a given string
 /// 
@@ -42,6 +40,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (buffer);
 }
 
+/*#include <stdio.h>*/
 /*int main(void)*/
 /*{*/
 /*	const char *str1 = "Hello, world!";*/

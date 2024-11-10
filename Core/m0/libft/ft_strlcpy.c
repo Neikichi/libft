@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:57:20 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:57:54 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:40:20 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/09 23:02:11 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Copy a string to a destination buffer, considering buffer size
 /// 

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:55:25 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:57:10 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:40:16 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 15:39:15 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Concatenate strings, taking buffer size into account
 /// 
@@ -33,6 +33,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	src_len;
 	size_t	dest_len;
 
+	if ((!dst || !src) && size == 0)
+		return (0);
 	i = 0;
 	src_len = ft_strlen(src);
 	dest_len = ft_strlen(dst);

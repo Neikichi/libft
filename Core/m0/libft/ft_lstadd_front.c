@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 15:51:53 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 15:52:27 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:38:06 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 11:31:39 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 /// @param new A pointer to the new element to be added
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst == NULL || new == NULL)
+	if (!lst || !new)
 		return ;
 	new->next = *lst;
 	*lst = new;

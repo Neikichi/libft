@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 17:00:04 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 17:00:52 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:40:32 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 11:33:27 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Compare two strings up to a given number of characters
 /// 
@@ -40,7 +40,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	if (i != n)
+	if (i < n)
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }

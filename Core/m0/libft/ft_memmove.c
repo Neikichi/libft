@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:12:54 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:18:00 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:39:24 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 14:50:05 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Move memory area
 /// 
@@ -29,6 +29,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		*ptr_dest;
 	const unsigned char	*ptr_src;
 
+	if (!dest && !src)
+		return (NULL);
 	ptr_dest = dest;
 	ptr_src = src;
 	if (ptr_dest > ptr_src && ptr_dest < ptr_src + n)

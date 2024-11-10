@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:10:35 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:11:36 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:39:14 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/09 23:07:32 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Compare two memory blocks
 /// 

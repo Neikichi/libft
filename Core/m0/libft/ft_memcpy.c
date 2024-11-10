@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: veehome <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:11:52 by veehome           #+#    #+#             */
-/*   Updated: 2024/11/09 16:12:42 by veehome          ###   ########.fr       */
+/*   Created: 2024/11/09 22:39:19 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/10 17:03:46 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 /// @brief Copy memory area
 /// 
@@ -29,6 +29,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*ptr_src;
 	size_t				i;
 
+	if (!dest && !src)
+		return (dest);
 	i = 0;
 	ptr_dest = dest;
 	ptr_src = src;

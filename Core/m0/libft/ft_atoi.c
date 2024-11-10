@@ -6,7 +6,7 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:10:15 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/09 21:05:32 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/09 23:10:57 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-/*#include <stdio.h>	*/
+/*#include <stdio.h>*/
 /*#include <stdlib.h>*/
 /*int main(void)*/
 /*{*/
