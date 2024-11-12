@@ -6,11 +6,12 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:33:43 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/10 17:03:00 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/12 11:58:48 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /// @brief Allocate and zero-initialize an array
@@ -27,9 +28,17 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void			*init;
 	size_t			i;
 
+	if (nmemb == 0 || size == 0)
+	{
+		init = malloc(1);
+		if (!init)
+			return (NULL);
+		return (init);
+	}
 	if (nmemb > (size_t)-1 / size)
 		return (NULL);
 	i = nmemb * size;
+	printf("inside calloc: %zu", i);
 	init = malloc(i);
 	if (!init)
 		return (NULL);
