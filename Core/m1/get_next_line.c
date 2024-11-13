@@ -6,7 +6,7 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:22:38 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/12 17:34:24 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/13 14:19:52 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,22 @@
 
 char *get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE];
+	static char *buffer;
 	ssize_t size;
-	char *ptr1 = buffer;
-	char *ptr2 = buffer;
 
-	size = read(fd, buffer, sizeof(buffer));
-	if (size <= 0)
-	{
-		buffer[size] = '\0';
+	if (fd < 0 || BUFFER_SIZE == 0 || read(fd, 0, 0))
 		return (NULL);
-	}
-	while (*ptr1)
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	size = 1;
+	while (size > 0)
 	{
-		if (*ptr1 == '\n')
+		size = read(fd, buffer, BUFFER_SIZE);
+		if (size == -1)
 		{
-			// printf("%.*s", (int)(ptr1 - ptr2 + 1), ptr1);
-			char *fline = ft_substr(buffer, (ptr2 - buffer), (ptr1 - ptr2 + 1));
-			if (!fline)
-			{
-				printf("fline failed.\n");
-				return (NULL);
-			}
-			printf("fline = \'%s\'", fline);
-			free(fline);
-			ptr2 = ptr1 + 1;
+			free(buffer);
+			return (NULL);
 		}
-		// else
-		// {
-		// 	get_next_line(fd);
-		// }
-		ptr1++;
+		printf("size= %zu | %s\n", size, buffer);
 	}
 	return (buffer);
 
