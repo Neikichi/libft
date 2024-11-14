@@ -6,7 +6,7 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:45:52 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/13 12:45:58 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/14 12:26:16 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	if (nmemb == 0 || size == 0)
 	{
-		init = malloc(1);
+		init = malloc(0);
 		if (!init)
 			return (NULL);
 		return (init);

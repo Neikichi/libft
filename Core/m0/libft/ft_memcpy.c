@@ -6,7 +6,7 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:39:19 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/11 15:15:02 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/14 12:27:42 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*ptr_src;
 	size_t				i;
 
-	if (!dest && !src)
-		return (NULL);
 	i = 0;
 	ptr_dest = dest;
 	ptr_src = src;
