@@ -1,9 +1,12 @@
-#include <stdlib.h>
+#include "libft.h"
+#include <stdio.h>
 
-int main (void)
-{
-	char *ptr = malloc(5);
-
-	free(ptr);
-	// ptr = ptr + 4;
+int main() {
+    char *test = ft_calloc(5, sizeof(char));
+    if (test) {
+        printf("ft_calloc works\n");
+    } else {
+        printf("ft_calloc failed\n");
+    }
+    return 0;
 }
