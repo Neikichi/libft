@@ -6,7 +6,7 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:56:16 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/18 21:55:35 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/18 12:03:30 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 #include <string.h>
 #include <unistd.h>
 
-static char	*valid_nl(char **buffer, char **load, char *nl_ptr);
+static char	*valid_nl(char **buffer, char *load, char *nl_ptr);
 static char	*load_line(int fd, char **buffer);
-static char	*set_line(char **buffer, char **load, ssize_t size);
-static int	nl_check(char **buffer, char **load);
+static char	*set_line(char **buffer, char *load, ssize_t size);
+static int	nl_check(char **buffer, char **load, ssize_t size);
 
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
+	ssize_t		size;
 	char		*valid;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0))
+	if (fd < 0 || BUFFER_SIZE == 0 || read(fd, 0, 0))
 		return (NULL);
 	if (!buffer)
 	{
@@ -40,7 +41,6 @@ char	*get_next_line(int fd)
 	if (!valid)
 	{
 		free(buffer);
-		buffer = NULL;
 		return (NULL);
 	}
 	return (valid);
@@ -49,6 +49,7 @@ char	*get_next_line(int fd)
 static char	*load_line(int fd, char **buffer)
 {
 	char	*load;
+	char	*nl_ptr;
 	ssize_t	size;
 
 	load = malloc(BUFFER_SIZE + 1);
@@ -57,26 +58,27 @@ static char	*load_line(int fd, char **buffer)
 	while (1)
 	{
 		size = read(fd, load, BUFFER_SIZE);
+		load[size] = '\0';
 		if (size == -1)
 		{
 			free(load);
 			return (NULL);
 		}
-		load[size] = '\0';
 		if (size == 0)
 		{
-			load = set_line(buffer, &load, size);
+			load = set_line(buffer, load, size);
 			return (load);
 		}
-		if (nl_check(buffer, &load))
+		if (nl_check(buffer, &load, size))
 			return (load);
-		*buffer = set_line(buffer, &load, 1);
+		*buffer = set_line(buffer, load, 1);
 	}
 }
 
-static int	nl_check(char **buffer, char **load)
+static int	nl_check(char **buffer, char **load, ssize_t size)
 {
 	char	*nl_ptr;
+	char	*l_ptr;
 
 	nl_ptr = *load;
 	while (*nl_ptr)
@@ -87,68 +89,65 @@ static int	nl_check(char **buffer, char **load)
 	}
 	if (*nl_ptr == '\n')
 	{
-		*load = valid_nl(buffer, load, nl_ptr);
+		*load = valid_nl(buffer, *load, nl_ptr);
 		return (1);
 	}
 	return (0);
 }
 
-static char	*valid_nl(char **buffer, char **load, char *nl_ptr)
+static char	*valid_nl(char **buffer, char *load, char *nl_ptr)
 {
 	char	*temp;
 	char	*subs;
 
-	subs = malloc((nl_ptr - *load) + 2);
+	subs = malloc((nl_ptr - load) + 2);
 	if (!subs)
 		return (NULL);
-	ft_strlcpy(subs, *load, (nl_ptr - *load) + 2);
-	temp = set_line(buffer, &subs, 1);
+	ft_strlcpy(subs, load, (nl_ptr - load) + 2);
+	temp = set_line(buffer, subs, 1);
 	free(subs);
 	*buffer = ft_strdup(nl_ptr + 1);
-	free(*load);
+	free(load);
 	return (temp);
 }
 
-static char	*set_line(char **buffer, char **load, ssize_t size)
+static char	*set_line(char **buffer, char *load, ssize_t size)
 {
 	char	*temp;
-	
+
 	if (size == 0)
 	{
-	if (!buffer || !(*buffer) || !(**buffer))
+		if (!(*buffer) || (*buffer)[0] == '\0')
 		{
-			free(*load);
+			free(load);
 			return (NULL);
 		}
-		free(*load);
+		free(load);
 		temp = ft_strdup(*buffer);
 		free(*buffer);
 		*buffer = NULL;
 		return (temp);
 	}
-	temp = ft_strjoin(*buffer, *load);
+	temp = ft_strjoin(*buffer, load);
 	free(*buffer);
 	return (temp);
 }
-
-// #include <mcheck.h>
-int main(void)
-{
-	int fd = open("test.txt", O_RDONLY);
-	if (fd == -1)
-		return (1);
-
-    char *line;
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	}
-	printf("%s", line);
-	free(line);
-
-	// get_next_line(fd);
-	// get_next_line(fd);
-    close(fd);
-	return (0);
-}
+//
+// int main(void)
+// {
+// 	int fd = open("test.txt", O_RDONLY);
+// 	if (fd == -1)
+// 		return (1);
+//
+//     char *line;
+//     while ((line = get_next_line(fd)) != NULL)
+//     {
+//         printf("%s", line);
+// 		free(line);
+//     }
+// 	printf("%s", line);
+// 	free(line);
+//
+//     close(fd);
+// 	return (0);
+// }
