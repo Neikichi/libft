@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 21:56:27 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/18 12:07:31 by vlow             ###   ########.fr       */
+/*   Created: 2024/11/19 17:38:39 by vlow              #+#    #+#             */
+/*   Updated: 2024/11/19 17:40:58 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include <stddef.h>
 
-# define BUFFER_SIZE 10
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
+char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-// size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
-// char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:56:46 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/18 11:59:54 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/19 17:39:49 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,6 @@ size_t	ft_strlen(const char *str)
 	}
 	return (count);
 }
-
-// size_t	ft_strlcat(char *dst, const char *src, size_t size)
-// {
-// 	size_t	i;
-// 	size_t	src_len;
-// 	size_t	dest_len;
-//
-// 	if ((!dst || !src) && size == 0)
-// 		return (0);
-// 	i = 0;
-// 	src_len = ft_strlen(src);
-// 	dest_len = ft_strlen(dst);
-// 	if (dest_len >= size)
-// 		return (src_len + size);
-// 	while (src[i] != '\0' && (dest_len + i) < (size - 1))
-// 	{
-// 		dst[dest_len + i] = src[i];
-// 		i++;
-// 	}
-// 	dst[dest_len + i] = '\0';
-// 	return (dest_len + src_len);
-// }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -98,15 +76,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (buffer);
 }
 
-// char	*ft_strchr(const char *s, int c)
-// {
-// 	while (*s)
-// 	{
-// 		if (*s == (char)c)
-// 			return ((char *)s);
-// 		s++;
-// 	}
-// 	if ((char)c == '\0')
-// 		return ((char *)s);
-// 	return (NULL);
-// }
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}

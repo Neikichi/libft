@@ -6,15 +6,12 @@
 /*   By: vlow <vlow@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:56:16 by vlow              #+#    #+#             */
-/*   Updated: 2024/11/18 21:55:35 by vlow             ###   ########.fr       */
+/*   Updated: 2024/11/19 20:12:31 by vlow             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 
 static char	*valid_nl(char **buffer, char **load, char *nl_ptr);
@@ -31,11 +28,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!buffer)
 	{
-		buffer = malloc(1);
+		buffer = ft_strdup("");
 		if (!buffer)
 			return (NULL);
-		buffer[0] = '\0';
 	}
+	valid = NULL;
+	if (nl_check(&buffer, &valid))
+		return (valid);
 	valid = load_line(fd, &buffer);
 	if (!valid)
 	{
@@ -78,17 +77,27 @@ static int	nl_check(char **buffer, char **load)
 {
 	char	*nl_ptr;
 
-	nl_ptr = *load;
-	while (*nl_ptr)
+	if (!(*load) && *buffer)
 	{
-		if (*nl_ptr == '\n')
-			break ;
-		nl_ptr++;
+		nl_ptr = ft_strchr(*buffer, '\n');
+		if (nl_ptr && *nl_ptr == '\n')
+		{
+			*load = ft_strdup(*buffer);
+			free(*buffer);
+			*buffer = ft_strdup("");
+			nl_ptr = ft_strchr(*load, '\n');
+			*load = valid_nl(buffer, load, nl_ptr);
+			return (1);
+		}
 	}
-	if (*nl_ptr == '\n')
+	else if (*buffer && *load)
 	{
-		*load = valid_nl(buffer, load, nl_ptr);
-		return (1);
+		nl_ptr = ft_strchr(*load, '\n');
+		if (nl_ptr && *nl_ptr == '\n')
+		{
+			*load = valid_nl(buffer, load, nl_ptr);
+			return (1);
+		}
 	}
 	return (0);
 }
@@ -112,10 +121,10 @@ static char	*valid_nl(char **buffer, char **load, char *nl_ptr)
 static char	*set_line(char **buffer, char **load, ssize_t size)
 {
 	char	*temp;
-	
+
 	if (size == 0)
 	{
-	if (!buffer || !(*buffer) || !(**buffer))
+		if (!buffer || !(*buffer) || !(**buffer))
 		{
 			free(*load);
 			return (NULL);
@@ -130,25 +139,27 @@ static char	*set_line(char **buffer, char **load, ssize_t size)
 	free(*buffer);
 	return (temp);
 }
-
-// #include <mcheck.h>
-int main(void)
-{
-	int fd = open("test.txt", O_RDONLY);
-	if (fd == -1)
-		return (1);
-
-    char *line;
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	}
-	printf("%s", line);
-	free(line);
-
-	// get_next_line(fd);
-	// get_next_line(fd);
-    close(fd);
-	return (0);
-}
+//
+// #include <fcntl.h>
+// #include <stdio.h>
+// int main(void)
+// {
+// 	int fd = open("alternate_line_nl_with_nl", O_RDONLY);
+// 	if (fd == -1)
+// 		return (1);
+// 	// int fd = -1;
+//
+//     char *line;
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("{%s}", line);
+// 		free(line);
+// 	}
+// 	printf("{EOL: %s}", line);
+// 	free(line);
+//
+// 	// get_next_line(fd);
+// 	// get_next_line(fd);
+//     close(fd);
+// 	return (0);
+// }
