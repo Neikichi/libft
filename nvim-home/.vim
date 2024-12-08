@@ -1,1 +1,0 @@
-/home/veehome/.vim

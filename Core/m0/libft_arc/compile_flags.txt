@@ -1,5 +1,0 @@
--Iinclude                # Include directory for header files
--Wall                    # Enable all warnings
--Wextra                  # Enable extra warnings
--Werror                  # Treat warnings as errors
-
