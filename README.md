@@ -2,7 +2,9 @@
 
 > **42KL Core Project**
 
-A comprehensive, custom C library built from scratch, extending the standard C library with utility functions for character classification, string manipulation, memory management, number conversion, linked lists, I/O, `ft_printf`, and `get_next_line`. This library is reused across all subsequent 42 projects.
+A comprehensive, custom C library built from scratch for the 42KL curriculum. It fully satisfies the mandatory 42 `libft` specification and **goes beyond it** with additional utility functions authored independently — extra character checks, in-place string case conversion, unsigned/hex integer helpers, extended I/O primitives, a full `ft_printf` implementation, and `get_next_line`. This library is reused across all subsequent 42 projects.
+
+> ✨ Functions marked with **\*** in the reference tables below are **custom additions** that exceed the 42 requirement.
 
 ---
 
@@ -36,9 +38,9 @@ libft/
 | `ft_isascii` | Checks if character is a valid ASCII character |
 | `ft_isdigit` | Checks if character is a decimal digit |
 | `ft_isprint` | Checks if character is printable |
-| `ft_isupper` | Checks if character is uppercase |
-| `ft_islower` | Checks if character is lowercase |
-| `ft_isspace` | Checks if character is whitespace |
+| `ft_isupper`\* | Checks if character is uppercase |
+| `ft_islower`\* | Checks if character is lowercase |
+| `ft_isspace`\* | Checks if character is whitespace |
 | `ft_tolower` | Converts character to lowercase |
 | `ft_toupper` | Converts character to uppercase |
 
@@ -60,8 +62,8 @@ libft/
 | `ft_split` | Splits a string by a delimiter into an array |
 | `ft_striteri` | Applies function to each character (with index) |
 | `ft_strmapi` | Creates new string applying function to each character |
-| `ft_strlowercase` | Converts all characters to lowercase in-place |
-| `ft_struppercase` | Converts all characters to uppercase in-place |
+| `ft_strlowercase`\* | Converts all characters to lowercase in-place |
+| `ft_struppercase`\* | Converts all characters to uppercase in-place |
 
 ### Memory Functions (`src/memory/`)
 
@@ -81,11 +83,11 @@ libft/
 |---|---|
 | `ft_atoi` | Converts ASCII string to integer |
 | `ft_itoa` | Converts integer to string |
-| `ft_itoa_u` | Converts unsigned long to decimal string |
-| `ft_itoa_hex` | Converts unsigned long to hexadecimal string |
-| `ft_countdigits` | Counts decimal digits in a signed integer |
-| `ft_countdigits_u` | Counts decimal digits in an unsigned integer |
-| `ft_countdigits_hex` | Counts hex digits in an unsigned integer |
+| `ft_itoa_u`\* | Converts unsigned long to decimal string |
+| `ft_itoa_hex`\* | Converts unsigned long to hexadecimal string |
+| `ft_countdigits`\* | Counts decimal digits in a signed integer |
+| `ft_countdigits_u`\* | Counts decimal digits in an unsigned integer |
+| `ft_countdigits_hex`\* | Counts hex digits in an unsigned integer |
 
 ### I/O Functions (`src/io/`)
 
@@ -95,9 +97,9 @@ libft/
 | `ft_putstr_fd` | Writes a string to a file descriptor |
 | `ft_putendl_fd` | Writes a string followed by newline to fd |
 | `ft_putnbr_fd` | Writes an integer to a file descriptor |
-| `ft_putnstr_fd` | Writes first `n` characters of a string to fd |
-| `ft_putnchar_fd` | Writes a character `n` times to a file descriptor |
-| `get_next_line` | Reads one line at a time from a file descriptor |
+| `ft_putnstr_fd`\* | Writes first `n` characters of a string to fd |
+| `ft_putnchar_fd`\* | Writes a character `n` times to a file descriptor |
+| `get_next_line`\* | Reads one line at a time from a file descriptor |
 
 ### Linked List Functions (`src/list/`)
 
@@ -113,7 +115,7 @@ libft/
 | `ft_lstiter` | Applies a function to each node's content |
 | `ft_lstmap` | Creates a new list by applying a function to each node |
 
-### Printf (`src/printf/`)
+### Printf (`src/printf/`) ✨ Custom addition
 
 A complete reimplementation of `printf` supporting the following conversion specifiers and flags:
 
@@ -137,6 +139,22 @@ A complete reimplementation of `printf` supporting the following conversion spec
 | `+` | Always show sign |
 | ` ` (space) | Prefix space for positive numbers |
 | `*` | Width / precision from argument |
+
+---
+
+## ➕ Extensions Beyond the 42 Requirement
+
+The following functions and modules are **not** part of the mandatory 42 `libft` specification. They were added to make the library more practical across projects:
+
+| Category | Custom Additions |
+|---|---|
+| **char** | `ft_isupper`, `ft_islower`, `ft_isspace` |
+| **string** | `ft_strlowercase`, `ft_struppercase` |
+| **number** | `ft_itoa_u`, `ft_itoa_hex`, `ft_countdigits`, `ft_countdigits_u`, `ft_countdigits_hex` |
+| **io** | `ft_putnstr_fd`, `ft_putnchar_fd`, `get_next_line` |
+| **printf** | Entire `ft_printf` module (`src/printf/`) |
+
+> `ft_printf` and `get_next_line` are separate 42 projects that have been consolidated into this library for convenience.
 
 ---
 
